@@ -4,72 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Soundboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
+    font-family: 'Roboto', sans-serif;
     background-color: #0a0a0a;
     color: #e0e0e0;
-    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 40px;
     min-height: 100vh;
   }
 
-  h1 {
-    color: #4da6ff;
-    margin-bottom: 30px;
+  header {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(90deg, #1e3a8a, #4da6ff);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   }
 
-  .sound-button {
-    display: block;
-    width: 250px;
-    margin: 15px auto;
-    padding: 15px;
+  header h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+  }
+
+  .sound-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .sound-card {
     background-color: #111827;
     border: 2px solid #1e40af;
-    border-radius: 12px;
-    color: #e0e0e0;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    border-radius: 15px;
+    padding: 25px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
   }
 
-  .sound-button:hover {
-    background-color: #1e3a8a;
-    color: #ffffff;
-    transform: scale(1.05);
+  .sound-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(77, 166, 255, 0.5);
   }
 
-  .sound-button:active {
-    transform: scale(0.95);
+  .sound-card h2 {
+    margin-bottom: 15px;
+    color: #4da6ff;
+    font-size: 1.5em;
   }
 
   .copy-message {
+    text-align: center;
     margin-top: 20px;
     color: #22c55e;
     font-size: 16px;
     display: none;
   }
 
-  @media (max-width: 768px) {
-    .sound-button {
-      width: 90%;
-    }
+  footer {
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    background-color: #111827;
+    border-top: 1px solid #1e40af;
+  }
+
+  @media (max-width: 600px) {
+    .sound-card { padding: 20px; }
   }
 </style>
 </head>
 <body>
 
-<h1>🎵 Soundboard</h1>
+<header>
+  <h1>🎵 My Soundboard</h1>
+</header>
 
-<button class="sound-button" onclick="copyLink('Fortnite.m4a')">Fortnite</button>
-<button class="sound-button" onclick="copyLink('victory-royale.m4a')">Victory Royale</button>
-<button class="sound-button" onclick="copyLink('gta-v-death-sound-effect-102.m4a')">GTA V Death</button>
+<main>
+  <div class="sound-grid">
+    <div class="sound-card" onclick="copyLink('Fortnite.m4a')">
+      <h2>Fortnite</h2>
+      <p>Click to copy link</p>
+    </div>
+    <div class="sound-card" onclick="copyLink('victory-royale.m4a')">
+      <h2>Victory Royale</h2>
+      <p>Click to copy link</p>
+    </div>
+    <div class="sound-card" onclick="copyLink('gta-v-death-sound-effect-102.m4a')">
+      <h2>GTA V Death</h2>
+      <p>Click to copy link</p>
+    </div>
+  </div>
+</main>
 
 <p class="copy-message" id="copyMessage"></p>
+
+<footer>
+  &copy; 2025 My Soundboard
+</footer>
 
 <script>
 function copyLink(filename) {
