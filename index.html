@@ -1,132 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soundboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #0a0a0a;
-    color: #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  header {
-    padding: 20px;
-    text-align: center;
-    background: linear-gradient(90deg, #1e3a8a, #4da6ff);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  }
-
-  header h1 {
-    color: #ffffff;
-    font-size: 2.5em;
-  }
-
-  main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 20px;
-  }
-
-  .sound-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1000px;
-  }
-
-  .sound-card {
-    background-color: #111827;
-    border: 2px solid #1e40af;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
-
-  .sound-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(77, 166, 255, 0.5);
-  }
-
-  .sound-card h2 {
-    margin-bottom: 15px;
-    color: #4da6ff;
-    font-size: 1.5em;
-  }
-
-  .copy-message {
-    text-align: center;
-    margin-top: 20px;
-    color: #22c55e;
-    font-size: 16px;
-    display: none;
-  }
-
-  footer {
-    padding: 15px;
-    text-align: center;
-    font-size: 14px;
-    color: #888;
-    background-color: #111827;
-    border-top: 1px solid #1e40af;
-  }
-
-  @media (max-width: 600px) {
-    .sound-card { padding: 20px; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Home | NixFN</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<header>
-  <h1>🎵 My Soundboard</h1>
-</header>
-
-<main>
-  <div class="sound-grid">
-    <div class="sound-card" onclick="copyLink('Fortnite.m4a')">
-      <h2>Fortnite</h2>
-      <p>Click to copy link</p>
-    </div>
-    <div class="sound-card" onclick="copyLink('victory-royale.m4a')">
-      <h2>Victory Royale</h2>
-      <p>Click to copy link</p>
-    </div>
-    <div class="sound-card" onclick="copyLink('gta-v-death-sound-effect-102.m4a')">
-      <h2>GTA V Death</h2>
-      <p>Click to copy link</p>
-    </div>
+  <div class="container">
+    <h1>Welcome to NixFN</h1>
+    <p>This is the home page of your site. Navigate using the menu above.</p>
   </div>
-</main>
-
-<p class="copy-message" id="copyMessage"></p>
-
-<footer>
-  &copy; 2025 My Soundboard
-</footer>
-
-<script>
-function copyLink(filename) {
-  const link = `https://niou5.github.io/g/${filename}`;
-  navigator.clipboard.writeText(link).then(() => {
-    const msg = document.getElementById("copyMessage");
-    msg.textContent = `Link for ${filename} copied to clipboard!`;
-    msg.style.display = "block";
-    setTimeout(() => msg.style.display = "none", 3000);
-  });
-}
-</script>
-
 </body>
 </html>
