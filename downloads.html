@@ -4,9 +4,50 @@
   <meta charset="UTF-8">
   <title>Downloads | NixFN</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .file-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
+      padding: 10px;
+      border: 1px solid #222;
+      border-radius: 8px;
+      background: #141414;
+    }
+
+    .file-row span {
+      flex: 1;
+      color: #e0e0e0;
+      font-weight: bold;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-group button,
+    .btn-group a {
+      padding: 8px 15px;
+      border: 1px solid #00aaff;
+      border-radius: 5px;
+      background: #111;
+      color: #00aaff;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-group button:hover,
+    .btn-group a:hover {
+      background: #00aaff;
+      color: #111;
+    }
+  </style>
   <script>
     function copyLink(file) {
-      const link = window.location.origin + '/nixfn/assets/' + file;
+      const link = window.location.origin + '/g/' + file;
       navigator.clipboard.writeText(link).then(() => {
         alert("Link for " + file + " copied to clipboard!");
       });
@@ -23,9 +64,31 @@
 
   <div class="container">
     <h1>Downloads</h1>
-    <button class="copy-btn" onclick="copyLink('Fortnite.m4a')">Fortnite.m4a</button>
-    <button class="copy-btn" onclick="copyLink('victory-royale.m4a')">Victory Royale</button>
-    <button class="copy-btn" onclick="copyLink('gta-v-death-sound-effect-102.m4a')">GTA V Death Sound</button>
+
+    <div class="file-row">
+      <span>Fortnite.m4a</span>
+      <div class="btn-group">
+        <button onclick="copyLink('Fortnite.m4a')">Copy</button>
+        <a href="Fortnite.m4a" download>Download</a>
+      </div>
+    </div>
+
+    <div class="file-row">
+      <span>victory-royale.m4a</span>
+      <div class="btn-group">
+        <button onclick="copyLink('victory-royale.m4a')">Copy</button>
+        <a href="victory-royale.m4a" download>Download</a>
+      </div>
+    </div>
+
+    <div class="file-row">
+      <span>gta-v-death-sound-effect-102.m4a</span>
+      <div class="btn-group">
+        <button onclick="copyLink('gta-v-death-sound-effect-102.m4a')">Copy</button>
+        <a href="gta-v-death-sound-effect-102.m4a" download>Download</a>
+      </div>
+    </div>
+
   </div>
 </body>
 </html>
