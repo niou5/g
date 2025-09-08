@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Downloads | NixFN</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function copyLink(file) {
+      const link = window.location.origin + '/nixfn/assets/' + file;
+      navigator.clipboard.writeText(link).then(() => {
+        alert("Link for " + file + " copied to clipboard!");
+      });
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h1>Downloads</h1>
+    <button class="copy-btn" onclick="copyLink('Fortnite.m4a')">Fortnite.m4a</button>
+    <button class="copy-btn" onclick="copyLink('victory-royale.m4a')">Victory Royale</button>
+    <button class="copy-btn" onclick="copyLink('gta-v-death-sound-effect-102.m4a')">GTA V Death Sound</button>
+  </div>
+</body>
+</html>
